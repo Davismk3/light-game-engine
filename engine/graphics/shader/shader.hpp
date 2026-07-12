@@ -1,0 +1,41 @@
+#pragma once
+
+#include <string>
+#include "engine/math/linear_algebra/mat4.hpp"
+
+enum class Color {
+    red,
+    blue,
+    green
+};
+
+class Shader {
+public:
+    void shaderInitialize(const std::string& vertex_path, const std::string& fragment_path);
+    void shaderUse() const;
+    void shaderShutdown();
+
+    void shaderSetBool(const std::string &name, bool value) const;  
+    void shaderSetInt(const std::string &name, int value) const;  
+    
+    // Options: "u_light", "u_opacity", "u_alpha_cutoff", "a_rotation_speed", "a_initial_angle"
+    void shaderSetFloat(const std::string &name, float value) const;
+    
+    // Options: "u_tint", "a_normal", "a_center"
+    void shaderSetVec3(const std::string& name, float x, float y, float z) const;
+
+    // Options: "u_projection", "u_view", "u_model"
+    void shaderSetMat4(const std::string& name, const Matrix4F& matrix) const;
+
+    unsigned int shaderId() const;
+
+    // Disables Copying
+    Shader(const Shader&) = delete;
+    Shader& operator=(const Shader&) = delete;
+
+    Shader() = default;
+    ~Shader();  // deletes GPU resource
+    
+private:
+    unsigned int m_shader_id = 0;
+};
