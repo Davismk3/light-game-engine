@@ -4,7 +4,7 @@ I frequently find myself struggling to scale projects as the codebase becomes to
 
 All of the complicated OpenGL functions are hidden inside the engine behind easy-to-understand functions for initializing, meshing, and drawing. 
 
-Furthermore, this engine/template has screen and on-screen button support built in already. The days of figuring out how to switch between different game screens---and add more screens to that list---are over! 
+Furthermore, this engine/template has a screen and on-screen button framework built in already.
 
 ## Requirements
 
