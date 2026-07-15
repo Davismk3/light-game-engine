@@ -11,9 +11,12 @@ public:
     ~Mesh();
     
     void meshClear();
-    void meshAppend(const Primitive& primitive);
+    void meshAppendPrimitives(const Primitive& primitive);
+    // also add a meshAppendMesh() for combining meshes?
     void meshUpload();  // Upload To GPU
     void meshShutdown();
+
+    Primitive meshGetPrimitives();
 
     /*
     Mesh(const Mesh&) = delete;

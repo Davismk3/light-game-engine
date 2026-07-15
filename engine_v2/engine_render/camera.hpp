@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../engine_core/quaternion.hpp"
-#include "../engine_core/vector.hpp"
-#include "../engine_core/matrix.hpp"
+#include "../engine_utility/quaternion.hpp"
+#include "../engine_utility/vector.hpp"
+#include "../engine_utility/matrix.hpp"
 
 class Camera {
 public:

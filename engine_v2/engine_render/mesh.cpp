@@ -5,11 +5,15 @@ void Mesh::meshClear() {
     m_indices.clear();
 }
 
-void Mesh::meshAppend(const Primitive& primitive) {
+void Mesh::meshAppendPrimitives(const Primitive& primitive) {
     unsigned int base_index = static_cast<unsigned int>(m_vertices.size());
     
     for (const Vertex& vertex : primitive.vertices) m_vertices.push_back(vertex);
     for (const int index : primitive.indices) m_indices.push_back(base_index + index);
+}
+
+Primitive Mesh::meshGetPrimitives() {
+    return Primitive{m_vertices, m_indices };
 }
 
 void Mesh::meshUpload() {
@@ -40,6 +44,10 @@ void Mesh::meshUpload() {
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
+    // Tint RGB & Light Level
+    glVertexAttribIPointer(2, 4, GL_UNSIGNED_BYTE, sizeof(Vertex), reinterpret_cast<void*>(offsetof(Vertex, tint_r)));
+    glEnableVertexAttribArray(2);
+
     glBindVertexArray(0);
 }
 
@@ -52,36 +60,3 @@ void Mesh::meshShutdown() {
 Mesh::~Mesh() {
     meshShutdown();
 }
-
-/*
-
-Mesh::Mesh(Mesh&& other) noexcept
-    : m_vertex_buffer(other.m_vertex_buffer),
-      m_index_buffer(other.m_index_buffer),
-      m_vertex_count(other.m_vertex_count),
-      m_index_count(other.m_index_count)
-{
-    other.m_vertex_buffer = 0;
-    other.m_index_buffer = 0;
-    other.m_vertex_count = 0;
-    other.m_index_count = 0;
-}
-
-Mesh& Mesh::operator=(Mesh&& other) noexcept {
-    if (this != &other) {
-        release(); // free existing owned resources
-
-        m_vertex_buffer = other.m_vertex_buffer;
-        m_index_buffer = other.m_index_buffer;
-        m_vertex_count = other.m_vertex_count;
-        m_index_count = other.m_index_count;
-
-        other.m_vertex_buffer = 0;
-        other.m_index_buffer = 0;
-        other.m_vertex_count = 0;
-        other.m_index_count = 0;
-    }
-    return *this;
-}
-
-*/

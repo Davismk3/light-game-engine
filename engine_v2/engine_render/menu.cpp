@@ -15,7 +15,7 @@ void Menu::buildMesh() {
         const float bottom = m_buttons[i].m_bounds.v - m_buttons[i].m_bounds.height;
         const float top = m_buttons[i].m_bounds.v + m_buttons[i].m_bounds.height;
 
-        m_mesh.meshAppend(quad(
+        m_mesh.meshAppendPrimitives(quad(
             {right, top, 0.0f, 1.0f, 1.0f},
             {right, bottom, 0.0f, 1.0f, 0.0f},
             {left, bottom, 0.0f, 0.0f, 0.0f},

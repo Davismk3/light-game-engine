@@ -2,6 +2,8 @@
 
 #include "../engine_platform/button.hpp"
 
+#include <cstddef>
+
 class Menu {
 public:
     ~Menu() = default;
@@ -24,10 +26,3 @@ private:
 
     bool m_mesh_dirty = true;
 };
-
-/*
-collection of buttons
-    shared mesh
-    shared shader
-    mesh construction/upload
-    drawing*/

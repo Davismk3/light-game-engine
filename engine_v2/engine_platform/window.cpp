@@ -52,6 +52,7 @@ void Window::windowInitialize() {
     }
     
     glfwMakeContextCurrent(m_native_handle);
+    glfwSwapInterval(1);  // max frame rate is monitor refresh rate
 
     int framebuffer_width = 0;
     int framebuffer_height = 0;

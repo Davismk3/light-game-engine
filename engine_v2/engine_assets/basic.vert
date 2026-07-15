@@ -2,6 +2,7 @@
 
 layout (location = 0) in vec3 a_position;
 layout (location = 1) in vec2 a_uv;
+layout (location = 2) in uvec4 a_tint_light;
 
 uniform float a_rotation_speed;
 uniform vec3 a_normal = vec3(0.0, 0.0, 1.0);
@@ -13,6 +14,8 @@ uniform mat4 u_view = mat4(1.0);
 uniform mat4 u_projection = mat4(1.0);
 
 out vec2 v_uv;
+out vec3 v_tint;
+flat out uint v_light_level;  // flat prevents interpolation of discrete light levels 
 
 vec3 rotateAroundAxis(
     vec3 point,
@@ -32,5 +35,8 @@ void main() {
     vec3 world_position = a_center + rotated_position;
 
     v_uv = a_uv;
+    v_tint = vec3(a_tint_light.rgb) / 255.0;
+    v_light_level = a_tint_light.a;
+
     gl_Position = u_projection * u_view * u_model * vec4(world_position, 1.0);
 }

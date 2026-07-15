@@ -1,3 +1,4 @@
+#define STB_IMAGE_IMPLEMENTATION
 #include "texture.hpp"
 
 void Texture::textureLoad(const std::string& path) {
