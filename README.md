@@ -7,7 +7,7 @@ All of the complicated OpenGL functions are hidden inside the engine behind easy
 Furthermore, this engine/template has a screen and on-screen button framework built in already.
 
 ## Voxel Lights Example (made with this engine):
-![example](assets/lighting_test_4.png)
+![example](assets/lighting_test_5.png)
 
 
 ## Requirements
