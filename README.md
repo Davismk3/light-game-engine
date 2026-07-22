@@ -1,10 +1,6 @@
 # Lightweight Game Engine/Template
 
-I frequently find myself struggling to scale projects as the codebase becomes too messy or specialized to its current self. I also find that when starting new projects or rewriting old ones, I am struggling to relearn or reuse core library functions from OpenGL, as an example. The purpose of this project is to provide myself with a scalable foundation for developing games and applications in general. 
-
-All of the complicated OpenGL functions are hidden inside the engine behind easy-to-understand functions for initializing, meshing, and drawing. 
-
-Furthermore, this engine/template has a screen and on-screen button framework built in already.
+A lightweight C++/OpenGL foundation for games and applications. It simplifies initialization, meshing, and rendering while providing built-in screen management and on-screen buttons.
 
 ## Voxel Lights Example (made with this engine):
 ![example](assets/lighting_test_10.png)
