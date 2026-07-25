@@ -3,8 +3,8 @@
 A lightweight C++/OpenGL foundation for games and applications. It simplifies initialization, meshing, and rendering while providing built-in screen management and on-screen buttons.
 
 ## Examples Made With This Engine (Not Included In Repository):
-![example](assets/title.gif)
-![example](assets/lighting_test_11.png)
+<img src="assets/title.gif" alt="Title animation" width="640">
+<img src="assets/lighting_test_11.png" alt="Lighting test" width="640">
 
 
 ## Requirements
