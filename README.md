@@ -4,6 +4,8 @@ A lightweight C++/OpenGL foundation for games and applications. It simplifies in
 
 I found myself struggling to scale application projects, and also struggling to start over and relearn libraries when the previous attempt's codebase became too unscalable. This game engine/template was made with the goal of resolving both of these issues. Care was taken to make this both scalable and easy to use.
 
+As the developer, you should build your project in app/, and leave engine_v2/ largely or completely untouched. 
+
 ## Examples Made With This Engine (Not Included In Repository):
 <img src="assets/title.gif" alt="Title animation" width="640">
 <img src="assets/lighting_test_11.png" alt="Lighting test" width="640">
