@@ -18,7 +18,7 @@ struct Primitive {
     std::vector<unsigned int> indices;
 
     void setRGBL(u_int8_t r, u_int8_t g, u_int8_t b, u_int8_t light);
-    void appendPrimitive(Primitive& other_primitive);
+    void appendPrimitive(const Primitive& other_primitive);
     void clearPrimitive();
 };
 

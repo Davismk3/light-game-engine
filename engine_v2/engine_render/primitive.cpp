@@ -18,12 +18,13 @@ void Primitive::setRGBL(u_int8_t r, u_int8_t g, u_int8_t b, u_int8_t light) {
     }
 }
 
-void Primitive::appendPrimitive(Primitive& other_primitive) {
+void Primitive::appendPrimitive(const Primitive& other_primitive) {
+    const unsigned int base_index = static_cast<unsigned int>(vertices.size());
+
     vertices.reserve(vertices.size() + other_primitive.vertices.size());
     vertices.insert(vertices.end(), other_primitive.vertices.begin(), other_primitive.vertices.end());
 
     indices.reserve(indices.size() + other_primitive.indices.size());
-    const unsigned int base_index = static_cast<unsigned int>(vertices.size());
     for (unsigned int index : other_primitive.indices) indices.push_back(base_index + index);
 }
 

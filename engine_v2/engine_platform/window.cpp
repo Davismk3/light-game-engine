@@ -1,5 +1,12 @@
 #include "window.hpp"
 
+/*
+C++ Refresher
+int* ptr_to_var = &var          a pointer to var's address
+var = *ptr_to_var               var from the pointer to its address
+int& ref_to_var = var           reference to var, shorthand for (*ptr_to_var)
+*/
+
 namespace {
     static void glfwErrorCallback(int error, const char* description) {
         std::cerr << "[GLFW Error " << error << "] " << description << '\n';
@@ -27,7 +34,11 @@ namespace {
     }
 
     void frameBufferSizeCallback(GLFWwindow* m_window, int width, int height) {
-        glViewport(0, 0, width, height);
+        //glViewport(0, 0, width, height);
+        Window* window = static_cast<Window*>(glfwGetWindowUserPointer(m_window));
+        if (!window) return;
+        window->m_framebuffer_extent = {width, height};
+        window->m_framebuffer_resized = true;
     }
 
     void setIcon(GLFWwindow* native_handle) {
@@ -57,8 +68,11 @@ void Window::windowInitialize() {
     int framebuffer_width = 0;
     int framebuffer_height = 0;
     glfwGetFramebufferSize(m_native_handle, &framebuffer_width, &framebuffer_height);
+    m_framebuffer_extent = {framebuffer_width, framebuffer_height};
+    m_framebuffer_resized = true;
     glViewport(0, 0, framebuffer_width, framebuffer_height);
 
+    glfwSetWindowUserPointer(m_native_handle, this);
     glfwSetFramebufferSizeCallback(m_native_handle, frameBufferSizeCallback);
 
     initializeGLAD();
@@ -90,4 +104,13 @@ bool Window::windowShouldClose() const {
 
 GLFWwindow* Window::windowNativeHandle() const {
     return m_native_handle;
+}
+
+bool Window::windowConsumeFramebufferResize(FramebufferExtent& extent) {
+    if (!m_framebuffer_resized) return false;
+
+    extent = m_framebuffer_extent;
+    m_framebuffer_resized = false;
+
+    return true;
 }

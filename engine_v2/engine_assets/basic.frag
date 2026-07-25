@@ -13,14 +13,20 @@ uniform vec3 u_tint = vec3(1.0, 1.0, 1.0);  // baseline is no tint
 uniform float u_light = 1.0;                // baseline is fully illuminated 
 uniform float u_opacity = 1.0;              // baseline is fully opaque
 uniform float u_alpha_cutoff = 0.0;         // baseline is no alpha cutoff
+uniform bool u_brightness_attenuate_rgb = false;
 
 // Light Level -> Actual Light Value
 float lightBrightness(uint level) {
-    if (level <= 1u) return 0.20;
-    if (level == 2u) return 0.32;
-    if (level == 3u) return 0.45;
-    if (level == 4u) return 0.60;
-    if (level == 5u) return 0.78;
+    if (level == 0u) return 0.00;
+    if (level == 1u) return 0.15;
+    if (level == 2u) return 0.22;
+    if (level == 3u) return 0.30;
+    if (level == 4u) return 0.39;
+    if (level == 5u) return 0.49;
+    if (level == 6u) return 0.60;
+    if (level == 7u) return 0.71;
+    if (level == 8u) return 0.82;
+    if (level == 9u) return 0.91;
     return 1.00;
 }
 
@@ -42,7 +48,9 @@ void main() {
 
     // Vertex Values 
     color.rgb *= v_tint;
-    color.rgb *= lightBrightness(v_light_level);
+    if (u_brightness_attenuate_rgb) {
+        color.rgb *= lightBrightness(v_light_level);
+    }
 
     frag_color = color;
 }

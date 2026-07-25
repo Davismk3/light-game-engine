@@ -13,6 +13,15 @@ using Vector4I = Vector4<int>;
 using Vector4F = Vector4<float>;
 using Vector4D = Vector4<double>;
 
+template <typename T> struct Vector2 {
+    T u;
+    T v;
+};
+
+using Vector2I = Vector2<int>;
+using Vector2F = Vector2<float>;
+using Vector2D = Vector2<double>;
+
 template <typename T> struct Vector3 {
     T x;
     T y;
@@ -20,6 +29,7 @@ template <typename T> struct Vector3 {
 
     T vectorMagnitude() const;
     Vector3<T> vectorNormalized() const;
+    Vector3<int> vectorToIntegersFloored() const;
 
     Vector3<T> operator+(const Vector3<T>& other) const;
     Vector3<T> operator-(const Vector3<T>& other) const;
@@ -50,6 +60,14 @@ template <typename T> Vector3<T> Vector3<T>::vectorNormalized() const {
     if (mag < eps) return {0, 0, 0};
     
     return {x / mag, y / mag, z / mag};
+}
+
+template <typename T> Vector3<int> Vector3<T>::vectorToIntegersFloored() const {
+    return Vector3<int>{
+        static_cast<int>(std::floor(x)),
+        static_cast<int>(std::floor(y)),
+        static_cast<int>(std::floor(z))
+    };
 }
 
 template <typename T> Vector3<T> Vector3<T>::operator+(const Vector3<T>& other) const {

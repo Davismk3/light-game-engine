@@ -14,6 +14,8 @@ public:
     void beginOverlayPass();
 
     void endFrame();
+
+    void resize(int width, int height);
 };
 
 /*

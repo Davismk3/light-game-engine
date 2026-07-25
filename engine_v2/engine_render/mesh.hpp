@@ -2,30 +2,29 @@
 
 #include "primitive.hpp"
 
+#include <utility>
 #include <stdexcept>
 #include <stdexcept>
 #include <glad/gl.h>
 
 class Mesh {
 public:
+    Mesh() = default;  // needed since we define additional constructors below
     ~Mesh();
     
     void meshClear();
     void meshAppendPrimitives(const Primitive& primitive);
-    // also add a meshAppendMesh() for combining meshes?
     void meshUpload();  // Upload To GPU
     void meshShutdown();
 
     Primitive meshGetPrimitives();
-
-    /*
+    
     Mesh(const Mesh&) = delete;
     Mesh& operator=(const Mesh&) = delete;
 
     Mesh(Mesh&& other) noexcept;
     Mesh& operator=(Mesh&& other) noexcept;
-    */
-
+    
     std::vector<Vertex> m_vertices;
     std::vector<unsigned int> m_indices;
 

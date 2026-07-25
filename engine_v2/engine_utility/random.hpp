@@ -4,6 +4,7 @@
 #include <cmath>
 #include <cstdint>
 
+int randomInt(int upper, int lower);
 float randomFloat(float upper, float lower);
 float hash11(float x, float y, float z, int seed);  // Hash11 (Deterministically Random Number) [-1.0, 1.0]
 float valueNoiseSingle(float x, float y, float z, int seed);  // Value Noise Single Pass

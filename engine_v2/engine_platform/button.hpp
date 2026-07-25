@@ -30,6 +30,7 @@ struct ButtonStyle {
 
 class Button {
 public: 
+    Button() = default;
     Button(ButtonBounds bounds, ButtonStyle style);
 
     ButtonBounds m_bounds;

@@ -17,6 +17,7 @@ void drawMesh(Mesh& mesh, Shader& shader) {
     glBindVertexArray(0);
 }
 
+// Separate Draw Calls On Single Mesh, Allows For Local Shader Differences Within Single Mesh
 void drawMeshRange(
     Mesh& mesh,
     Shader& shader,
@@ -24,17 +25,15 @@ void drawMeshRange(
     unsigned int index_count
 ) {
     shader.shaderUse();
+
+    // Bind VAO
     glBindVertexArray(mesh.m_VAO);
 
+    // Draw
     const std::size_t byte_offset = static_cast<std::size_t>(first_index) * sizeof(unsigned int);
+    glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(index_count), GL_UNSIGNED_INT, reinterpret_cast<const void*>(byte_offset));
 
-    glDrawElements(
-        GL_TRIANGLES,
-        static_cast<GLsizei>(index_count),
-        GL_UNSIGNED_INT,
-        reinterpret_cast<const void*>(byte_offset)
-    );
-
+    // Unbind VAO
     glBindVertexArray(0);
 }
 

@@ -1,5 +1,30 @@
 #include "mesh.hpp"
 
+Mesh::Mesh(Mesh&& other) noexcept
+    : m_vertices(std::move(other.m_vertices)),
+      m_indices(std::move(other.m_indices)),
+      m_VAO(std::exchange(other.m_VAO, 0)),
+      m_VBO(std::exchange(other.m_VBO, 0)),
+      m_EBO(std::exchange(other.m_EBO, 0)) {
+}
+
+Mesh& Mesh::operator=(Mesh&& other) noexcept {
+    if (this == &other) {
+        return *this;
+    }
+
+    meshShutdown();
+
+    m_vertices = std::move(other.m_vertices);
+    m_indices = std::move(other.m_indices);
+
+    m_VAO = std::exchange(other.m_VAO, 0);
+    m_VBO = std::exchange(other.m_VBO, 0);
+    m_EBO = std::exchange(other.m_EBO, 0);
+
+    return *this;
+}
+
 void Mesh::meshClear() {
     m_vertices.clear();
     m_indices.clear();

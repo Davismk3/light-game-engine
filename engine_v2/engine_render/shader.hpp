@@ -27,7 +27,7 @@ public:
     // Options: "u_light", "u_opacity", "u_alpha_cutoff", "a_rotation_speed", "a_initial_angle"
     void shaderSetFloat(const std::string &name, float value) const;
     
-    // Options: "u_tint", "a_normal", "a_center"
+    // Options: "u_tint", "a_normal", "a_center", "a_shift"
     void shaderSetVec3(const std::string& name, float x, float y, float z) const;
 
     // Options: "u_projection", "u_view", "u_model"
