@@ -21,7 +21,7 @@ bool Button::isHover(const Input& input) {
 }
 
 bool Button::isHeld(const Input& input) {
-    if (isHover(input) && input.inputMouseDown(MouseButton::left)) return true;
+    if (isHover(input) && input.inputMousePressed(MouseButton::left)) return true;
     return false;
 }
 
