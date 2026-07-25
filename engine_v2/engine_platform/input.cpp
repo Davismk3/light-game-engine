@@ -62,30 +62,6 @@ namespace {
             case Key::RSquareBracket: return GLFW_KEY_RIGHT_BRACKET;
             case Key::BackTick: return GLFW_KEY_GRAVE_ACCENT;
 
-            // Shifted characters do not have distinct GLFW key codes.
-            case Key::ExclaimationMark:
-            case Key::QuestionMark:
-            case Key::Colon:
-            case Key::UnderScore:
-            case Key::QuotationMarkDouble:
-            case Key::VerticalLine:
-            case Key::At:
-            case Key::Hash:
-            case Key::Dollar:
-            case Key::Percentage:
-            case Key::UpCarrot:
-            case Key::Amperesand:
-            case Key::Cross:
-            case Key::LParenthaces:
-            case Key::RParenthaces:
-            case Key::Plus:
-            case Key::LCurvyBracket:
-            case Key::RCurvyBracket:
-            case Key::LCarrot:
-            case Key::RCarrot:
-            case Key::Approximation:
-                return GLFW_KEY_UNKNOWN;
-
             case Key::COUNT: break;
         }
         return GLFW_KEY_UNKNOWN;
