@@ -35,7 +35,9 @@ namespace {
             // Special Keys
             case Key::Escape: return GLFW_KEY_ESCAPE;
             case Key::Space: return GLFW_KEY_SPACE;
-            case Key::Shift: return GLFW_KEY_LEFT_SHIFT;
+            case Key::LShift: return GLFW_KEY_LEFT_SHIFT;
+            case Key::RShift: return GLFW_KEY_RIGHT_SHIFT;
+            case Key::Delete: return GLFW_KEY_BACKSPACE;
 
             // Numbers
             case Key::One: return GLFW_KEY_1;

@@ -42,7 +42,9 @@ enum class Key {
 
     Escape,
     Space,
-    Shift,
+    LShift,
+    RShift,
+    Delete,
 
     One,
     Two,
@@ -56,39 +58,16 @@ enum class Key {
     Zero,
 
     Period,
-    ExclaimationMark,
-    QuestionMark,
-    Colon,
     SemiColon,
     Comma,
-    UnderScore,
     RSlash,
     LSlash,
-    QuotationMarkDouble,
     QuotationMarkSingle,
-    VerticalLine,
-    At,
-    Hash,
-    Dollar,
-    Percentage,
-    UpCarrot,
-    Amperesand,
-    Cross,
-    LParenthaces,
-    RParenthaces,
     Minus,
-    Plus,
     Equal,
-    LCurvyBracket,
-    RCurvyBracket,
     LSquareBracket,
     RSquareBracket,
     BackTick,
-    LCarrot,
-    RCarrot,
-    Approximation,
-    
-
 
     COUNT
 };

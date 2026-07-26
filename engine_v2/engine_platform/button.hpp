@@ -15,8 +15,6 @@ enum class ButtonState {
 };
 
 struct ButtonBounds {
-    float u;
-    float v;
     float width;
     float height;
 };
@@ -31,15 +29,18 @@ struct ButtonStyle {
 class Button {
 public: 
     Button() = default;
-    Button(ButtonBounds bounds, ButtonStyle style);
+    Button(Vector2F position, ButtonBounds bounds, ButtonStyle style);
 
+    Vector2F m_position;
     ButtonBounds m_bounds;
     ButtonStyle m_style;
 
-    bool isHover(const Input& input);
-    bool isHeld(const Input& input);
+    bool isHover(const Input& input, float aspect);
+    bool isHeld(const Input& input, float aspect);
 
-    void update(const Input& input);
+    void processInput(const Input& input, float aspect);
+
+    Primitive buildPrimitives();
 
     ButtonState m_state = ButtonState::Idle;
 };

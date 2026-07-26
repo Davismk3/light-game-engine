@@ -24,7 +24,7 @@ struct Text {
     Text() = default;
     Text(Vector2F start_position, TextStyle style, std::string string);
 
-    Vector2F m_start_position;  // normalized to (0-1, 0-1) for screen
+    Vector2F m_position;  // normalized to ([-1, 1], [-1, 1]) for screen
     TextStyle m_style;
     std::string m_string;
 

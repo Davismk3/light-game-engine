@@ -13,6 +13,7 @@ namespace {
     int emoticons(char glyph, std::string& string, int i) {
         char next_glyph = string[i + 1];
 
+        // Emoticons
         if (next_glyph == '1') return 96;
         else if (next_glyph == '2') return 97;
         else if (next_glyph == '3') return 98;
@@ -22,6 +23,11 @@ namespace {
         else if (next_glyph == '7') return 102;
         else if (next_glyph == '8') return 103;
         else if (next_glyph == '9') return 104;
+        
+        // Russian
+        else if (next_glyph == 'p') return 105;
+        else if (next_glyph == 'l') return 106;
+        else if (next_glyph == 'i') return 107;
 
         return 1;
     }
@@ -44,7 +50,7 @@ namespace {
 }
 
 Text::Text(Vector2F start_position, TextStyle style, std::string string) {
-    m_start_position = start_position;
+    m_position = start_position;
     m_style = style;
     m_string = string;
 }
@@ -78,12 +84,12 @@ Primitive Text::buildPrimitives() {
         float u1 = static_cast<float>(glyph_uv.u + GLYPH_WIDTH) / FONT_AXIS_WIDTH;
         float v1 = 1.0f - static_cast<float>(glyph_uv.v + GLYPH_HEIGHT) / FONT_AXIS_HEIGHT;
 
-        float start_x = m_start_position.u * 2.0f - 1.0f;
-        float start_y = m_start_position.v * 2.0f - 1.0f;
+        float start_x = m_position.u;
+        float start_y = m_position.v;
 
         if (m_style.centered) {
             float text_width = 0.0f;
-            for (int j = 0; j < m_string.size() - 1; j++) text_width += glyphStep(m_string[j], width, m_style);
+            for (int j = 0; j < m_string.size(); j++) text_width += glyphStep(m_string[j], width, m_style);
 
             start_x -= text_width * 0.5f;
             start_y -= m_style.size * 0.5f;
@@ -109,10 +115,15 @@ Primitive Text::buildPrimitives() {
         else if (glyph == 'r') step = stepPixel(5, width, m_style);
         else if (glyph == 'h') step = stepPixel(5, width, m_style);
         else if (glyph == 'n') step = stepPixel(5, width, m_style);
+        else if (glyph == 'y') step = stepPixel(5, width, m_style);
         else if (glyph == 'k') step = stepPixel(5, width, m_style);
         else if (glyph == 'l') step = stepPixel(3, width, m_style);
+        else if (glyph == 'j') step = stepPixel(4, width, m_style);
         else if (glyph == '!') step = stepPixel(2, width, m_style);
         else if (glyph == '.') step = stepPixel(2, width, m_style);
+        else if (glyph == '\'') step = stepPixel(3, width, m_style);
+        else if (glyph == 'I') step = stepPixel(5, width, m_style);
+        else if (glyph == 'J') step = stepPixel(5, width, m_style);
 
         if (!special_exists) advance += step;
     }
