@@ -8,6 +8,7 @@ As the developer, you should build your project in app/, and leave engine_v2/ la
 
 ## Examples Made With This Engine (Not Included In Repository):
 <img src="assets/title.gif" alt="Title animation" width="640">
+<img src="assets/textbox.gif" alt="textbox" width="640">
 <img src="assets/lighting_test_11.png" alt="Lighting test" width="640">
 
 
