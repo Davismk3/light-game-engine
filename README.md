@@ -1,5 +1,7 @@
 # Lightweight Game Engine/Template
 
+$\color{red}{\text{No AI code or AI design choices.}}$
+
 A lightweight C++/OpenGL foundation for games and applications. It simplifies initialization, meshing, and rendering while providing built-in screen management and on-screen buttons.
 
 I found myself struggling to scale application projects, and also struggling to start over and relearn libraries when the previous attempt's codebase became too unscalable. This game engine/template was made with the goal of resolving both of these issues. Care was taken to make this both scalable and easy to use.
