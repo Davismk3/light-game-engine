@@ -1,14 +1,14 @@
-# Lightweight Game Engine
+# Lightweight Game Framework
 
-A lightweight C++/OpenGL template for games and other applications. It simplifies initialization, meshing, and rendering while providing built-in screen management, on-screen buttons, and more.
+A lightweight C++/OpenGL framework for games and other applications. It simplifies initialization, meshing, and rendering while providing built-in screen management, on-screen buttons, and more.
 
-I found myself struggling to scale application projects, and also struggling to start over and relearn libraries when the previous attempt's codebase became too unscalable. This game engine was made with the goal of resolving both of these issues. Care was taken to make this both scalable and easy to use.
+I found myself struggling to scale game/other application projects, and also struggling to start over and relearn libraries when the previous attempt's codebase became too unscalable. This framework was made with the goal of resolving both of these issues. Care was taken to make this both scalable and easy to use.
 
 As the developer, you should build your project in `app/`, and leave `engine/` largely untouched. 
 
 ## Examples:
 
-The following screenshots are taken from *Voxelverse*, a project of mine, using this game engine. 
+The following screenshots are taken from *Voxelverse*, a project of mine, which uses the same source code in `engine/` for its core.
 
 <img src="assets/cinematic_3.png" alt="Title animation" width="800">
 <img src="assets/cinematic_2.png" alt="textbox" width="800">
