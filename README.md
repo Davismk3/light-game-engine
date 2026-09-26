@@ -10,10 +10,10 @@ As the developer, you should build your project in `app/`, and leave `engine/` l
 
 The following screenshots are taken from *Voxelverse*, a project of mine, which uses the same source code in `engine/` for its core.
 
-<img src="assets/cinematic_3.png" alt="1" width="800">
-<img src="assets/cinematic_2.png" alt="2" width="800">
-<img src="assets/cinematic_1.png" alt="3" width="800">
-<img src="assets/cinematic_4.png" alt="4" width="800">
+<img src="assets/cinematic_3.png" alt="1" width="800" height="500">
+<img src="assets/cinematic_2.png" alt="2" width="800" height="500">
+<img src="assets/cinematic_1.png" alt="3" width="800" height="500">
+<img src="assets/cinematic_4.png" alt="4" width="800" height="500">
 
 ## Requirements
 
