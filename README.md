@@ -8,7 +8,7 @@ As the developer, you should build your project in `app/`, and leave `engine/` l
 
 ## Examples:
 
-The following screenshots are taken from a current project using this game engine. 
+The following screenshots are taken from *Voxelverse*, a project of mine, using this game engine. 
 
 <img src="assets/cinematic_3.png" alt="Title animation" width="800">
 <img src="assets/cinematic_2.png" alt="textbox" width="800">
